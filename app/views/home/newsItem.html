@@ -1,0 +1,14 @@
+<div class="news-item">
+    <div ng-class="news-image" ng-class-odd="'odd'">
+        <img ng-src="item.imgUrl" title="item.imgTitle">
+    </div>
+    <div class="news-content">
+        <h1 class="news-title" >{{item.title}}</h1>
+        <h3 class="news-date" >{{item.date}}</h3>
+        <div class="news-text" ng-bind-html="item.text">
+        </div>
+        <div class="news-fbevent">
+            <a ng-href="{item.fbUrl}"></a>
+        </div>
+    </div>
+</div>

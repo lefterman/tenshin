@@ -1,0 +1,7 @@
+<div ng-controller="newsCtrl">
+    {{news.length}}
+    <h1>Aktuális</h1>
+    <div ng-repeat="item in news">
+        {{item.title}}<news-item  item="item"></news-item>
+    </div>
+</div>

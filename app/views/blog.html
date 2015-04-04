@@ -1,0 +1,20 @@
+<section>
+<div class="row">    
+    <div class="col-md-8" data-ng-model="blogPosts">
+        <div class="row" data-ng-repeat="blogpost in blogPosts">
+			<div class="col-md-4 center-block text-center">
+				<img class="img-circle" data-ng-src="{blogpost.imgUrl}" alt="{{blogpost.title}}" width="200" />
+			</div>
+			<div class="col-md-8">
+				<h1>{{blogpost.title}}</h1>
+				<p>{{blogpost.text}}</p>
+				<p>
+					Bejegyezve: {{blogpost.date|date}}		
+				</p>
+				<a href="{{blogpost.url}}" target="_blank" class="pull-right">Tovább a bejegyzéshez</a>
+			</div>
+	   </div>
+	   <div class="clear_30"></div>
+    </div>
+</div>    
+</section>
