@@ -1,6 +1,6 @@
 <div class="news-item">
     <div ng-class="news-image" ng-class-odd="'odd'">
-        <img ng-src="item.imgUrl" title="item.imgTitle">
+        <img ng-src="{{item.imgUrl}}" ng-attr-title="{{item.imgTitle}}">
     </div>
     <div class="news-content">
         <h1 class="news-title" >{{item.title}}</h1>

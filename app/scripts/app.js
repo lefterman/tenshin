@@ -18,11 +18,19 @@
         'ngSanitize',
         'ngTouch',
         'ui.router',
+        'tenshinApp.config',
         'tenshinApp.services',
         'tenshinApp.directives'
       ])
-        .config(function ($stateProvider, $urlRouterProvider) {
+        .config(['$stateProvider', '$urlRouterProvider','navigationSrvcProvider','appConfig', function ($stateProvider, $urlRouterProvider, navigationSrvc, appConfig) {
+            
             $urlRouterProvider.otherwise("/aktualis");
+            var states = appConfig.states;
+            states.forEach(function (stateItem) {
+                $stateProvider.state(stateItem.name,stateItem);
+            });
+            navigationSrvc.setStates (states);
+            /*
             $stateProvider
                 .state('home', {
                     url: '/aktualis',
@@ -36,6 +44,6 @@
                     controller: function ($scope) {
                         $scope.items = ["A", "List", "Of", "Items"];
                     }
-                });
-        });
+                });*/
+        }]);
 })();

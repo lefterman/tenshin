@@ -1,8 +1,7 @@
 <header class="header">
-    <nav>
-        <ul>
-            <li ui-sref="home">Aktulis</li>
-            <li ui-sref="karate-do">Karate Do</li>
+    <nav ng-controller="mainNavbar as navbar">
+        <ul class="nav nav-pills">
+            <li ng-repeat="menuItem in menu" ui-sref-active="active"><a ui-sref="{{menuItem.name}}">{{menuItem.label}}</a></li>
         </ul>
     </nav>
 </header>

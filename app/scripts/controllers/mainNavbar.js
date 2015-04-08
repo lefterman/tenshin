@@ -1,11 +1,8 @@
 (function (module) {
     'use strict';
-    module.controller('mainNavbar', ['$scope', '$element', 'tsMenuProvider', function ($scope, $element, tsMenuProvider) {
-        var mainMenu = tsMenuProvider || {items: [{
-            'url' : 'aktualis',
-            'label' : 'Aktuális'
-        }]};
+    module.controller('mainNavbar', ['$scope', '$element', 'navigationSrvc', function ($scope, $element, navigationSrvc) {
+        var mainMenu = navigationSrvc.getMenuItems();
         $scope.menu = mainMenu;
-       console.log($element.find('a'));
+       console.log(['main menu',mainMenu]);
     }]);
 }(angular.module('tenshinApp')));
