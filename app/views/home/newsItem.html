@@ -1,14 +1,15 @@
 <div class="news-item">
     <div ng-class="news-image" ng-class-odd="'odd'">
-        <img ng-src="{{item.imgUrl}}" ng-attr-title="{{item.imgTitle}}">
+        <img class="img-circle" ng-src="{{item.imgUrl}}" ng-attr-title="{{item.imgTitle}}">
     </div>
     <div class="news-content">
         <h1 class="news-title" >{{item.title}}</h1>
         <h3 class="news-date" >{{item.date}}</h3>
         <div class="news-text" ng-bind-html="item.text">
         </div>
-        <div class="news-fbevent">
-            <a ng-href="{item.fbUrl}"></a>
+        <div ng-if="item.fbUrl" class="news-fbevent">
+            <a ng-href="{{item.fbUrl}}" target="_blank" class="btn btn-primary"><i class="fa fa-facebook-square social"></i>&nbsp;Facebook esemény</a>
         </div>
+        
     </div>
 </div>

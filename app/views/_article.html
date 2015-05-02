@@ -1,0 +1,13 @@
+    <div class="clear_30"></div>
+    <section>
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="article-title">{{article.title}}<a name="{{article.name}}"></a></h1>
+                <div class="text-content" ng-html-bind="article.text">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img ng-if="article.imgUrl" class="img-circle sidebar-img" width="300" ng-src="{{article.imgUrl}}" alt="{{article.imgTitle}}" title="{{article.imgTitle}}" />
+            </div>
+        </div>
+    </section>

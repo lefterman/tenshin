@@ -1,6 +1,6 @@
 (function (services) {
     'use strict';
-    services.service('newsSrvc', ['$q', function ($q) {
+    services.service('newsSrvc', ['$q', '$http', 'appConfig', function ($q, $http, appConfig) {
         var news = [
             {
                 title: 'Ovikarate tanfolyam nyilvános edzés',
@@ -41,8 +41,36 @@ A KEIKO (gyakorlás) célja baráti kapcsolatok építése a magyarországi és 
                 fbUrl: ''
             }
         ];
+
+        function loadNews () {
+            var apiUrl = appConfig.apiUrl,
+                options = {
+                    params : {
+                        api:'news',
+                        callback: "JSON_CALLBACK"
+                    }
+                },
+                deferred = $q.defer();
+            $http.jsonp(apiUrl, options).then(function(response){
+                var data = response.data;
+                if (typeof data === 'object') {
+                    if (data.status === 'OK') {
+                        deferred.resolve(data.result);
+                    } else {
+                        deferred.reject(data.error);
+                    }
+                } else {
+                    cdeferred.reject('Nincs válasz');
+                }
+            },function(response){
+                console.log(response);
+                deferred.rejecet('Error, no news data retrieved');
+            });
+            return deferred.promise;
+        };
         this.getNews = function () {
-            return $q.when(news);
+            return loadNews();
+            //return $q.when(news2);
         };
     }]);
 }(angular.module('tenshinApp.services')));

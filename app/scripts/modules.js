@@ -7,6 +7,7 @@
     ng.module(APP_NAME + '.directives',[APP_NAME + '.services']);
     // config constants
     ng.module(APP_NAME + '.config').constant('appConfig', {
+        apiUrl : 'http://users.atw.hu/tenshin/api.php',
         // states
         states : [
                 {
@@ -50,6 +51,8 @@
                         label: 'Blog'
                     }
                 }
-        ]
+        ],
+        // blog API
+        blogApiID : '8602971421240544598'
     });
 }(angular));
